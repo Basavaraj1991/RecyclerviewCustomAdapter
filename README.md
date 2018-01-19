@@ -70,6 +70,10 @@ public class Adapter extends BaseAdapter<Model, Adapter.NameHolder> {
         }
     }
 }
+        //adapter.addData(your list here);
+        //adapter.addElement(T);
+        //adapter.clear();//remove all items
+        //adapter.removeItemAt(0); //remove item at position
 
 
 
