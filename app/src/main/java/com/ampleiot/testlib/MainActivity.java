@@ -4,11 +4,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Callback{
 
     RecyclerView recyclerView;
     Adapter adapter;
@@ -20,8 +21,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        //Item click callback to Activity/Fragment
+        //adapter = new Adapter(this,this);
+
+        //Normal
         adapter = new Adapter(this);
-        recyclerView.setHasFixedSize(true);
+        //adapter.addData(your list here);
+        //adapter.addElement(T);
+        //adapter.clear();//remove all items
+        //adapter.removeItemAt(0);
+        //recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
         adapter.setData(populateData());
     }
@@ -104,5 +113,10 @@ public class MainActivity extends AppCompatActivity {
         list.add(model);
 
         return list;
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Toast.makeText(this, "on item click"+ position, Toast.LENGTH_SHORT).show();
     }
 }

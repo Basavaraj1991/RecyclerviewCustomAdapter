@@ -58,5 +58,11 @@ public abstract class BaseAdapter<T, V extends BaseViewHolder<T>>
     public void setData(List<T> data) {
         mData = data;
     }
+
+    public void removeItemAt(int position){
+        if (mData!=null && mData.size()>0) {
+            mData.remove(position);
+        }
+    }
 }
 
